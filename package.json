@@ -1,0 +1,17 @@
+{
+  "name": "ddd-clean-architecture-rep",
+  "version": "1.0.0",
+  "description": "Repositório de Estudo do módulo de DDD e Clean Architecture do curso de Node da RocketSeat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.26",
+    "typescript": "^5.4.2",
+    "vitest": "^1.3.1"
+  }
+}
