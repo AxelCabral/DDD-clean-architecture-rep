@@ -14,7 +14,7 @@ interface QuestionProps {
   updatedAt?: Date
 }
 
-export class Question extends Entity<QuestionProps>{
+export class Question extends Entity<QuestionProps> {
   get authorId() {
     return this.props.authorId
   }
@@ -26,11 +26,11 @@ export class Question extends Entity<QuestionProps>{
   get title() {
     return this.props.title
   }
-  
+
   get content() {
     return this.props.content
   }
-  
+
   get slug() {
     return this.props.slug
   }
@@ -48,38 +48,41 @@ export class Question extends Entity<QuestionProps>{
   }
 
   get excerpt() {
-    return this.content
-      .substring(0, 120)
-      .trimEnd()
-      .concat('...')
+    return this.content.substring(0, 120).trimEnd().concat('...')
   }
 
   private touch() {
     this.props.updatedAt = new Date()
   }
 
-  set title(title: string){
+  set title(title: string) {
     this.props.title = title
     this.props.slug = Slug.createFromText(title)
     this.touch()
   }
 
-  set content(content: string){
+  set content(content: string) {
     this.props.content = content
     this.touch()
   }
 
-  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined){
+  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined) {
     this.props.bestAnswerId = bestAnswerId
     this.touch()
   }
 
-  static create(props: Optional<QuestionProps, 'createdAt' | 'slug'>, id?: UniqueEntityID) {
-    const question = new Question({
-      ...props,
-      slug: props.slug ?? Slug.createFromText(props.title),
-      createdAt: new Date(),
-    }, id)
+  static create(
+    props: Optional<QuestionProps, 'createdAt' | 'slug'>,
+    id?: UniqueEntityID,
+  ) {
+    const question = new Question(
+      {
+        ...props,
+        slug: props.slug ?? Slug.createFromText(props.title),
+        createdAt: new Date(),
+      },
+      id,
+    )
 
     return question
   }
