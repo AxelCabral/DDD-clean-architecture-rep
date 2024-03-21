@@ -23,3 +23,9 @@
 - Subdomínios (Bounded Contexts)
 - Entidades
 - Casos de uso
+
+### Subdomínios
+
+- Core: Aquilo que nunca pode parar
+- Supporting: Dá suporte para o core
+- Generic: Não são tão importantes
